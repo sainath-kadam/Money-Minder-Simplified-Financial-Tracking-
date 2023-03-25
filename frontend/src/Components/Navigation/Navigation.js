@@ -28,9 +28,9 @@ function Navigation({active, setActive}) {
                 })}
             </ul>
             <div className="bottom-nav">
-                <li>
+                {/* <li>
                     {signout} Sign Out
-                </li>
+                </li> */}
             </div>
         </NavStyled>
     )

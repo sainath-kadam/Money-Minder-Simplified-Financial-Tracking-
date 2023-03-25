@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../context/globalContext';
 import Button from '../Button/Button';
 import { plus } from '../../utils/Icons';
+import axios from "axios";
 
 
 function ExpenseForm() {
@@ -24,7 +25,7 @@ function ExpenseForm() {
         setError('')
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         addExpense(inputState)
         setInputState({

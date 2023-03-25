@@ -1,4 +1,5 @@
 const express = require('express')
+
 const cors = require('cors');
 // const { db } = require('./db/db');
 const connectDB = require('./config/db');
@@ -25,7 +26,7 @@ app.use(express.json({ extended: false }));
 
 
 
-app.use('/routes/transactions', diary);
+app.use('/routes/', diary);
 // fs.readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)));
 
 const port = process.env.PORT || 8082;
