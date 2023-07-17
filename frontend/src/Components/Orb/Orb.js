@@ -10,13 +10,13 @@ function Orb() {
 
     const moveOrb = keyframes`
         0%{
-            transform: translate(0, 0);
+            transform: translate(20, 0);
         }
         50%{
             transform: translate(${width}px, ${height/2}px);
         }
         100%{
-            transform: translate(0, 0);
+            transform: translate(0 , 0);
         }
     `
 
