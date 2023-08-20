@@ -8,7 +8,6 @@ import ExpenseForm from './ExpenseForm';
 
 function Expenses() {
     const {addIncome,expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
-
     useEffect(() =>{
         getExpenses()
     }, [])
@@ -44,7 +43,6 @@ function Expenses() {
         </ExpenseStyled>
     )
 }
-
 const ExpenseStyled = styled.div`
     display: flex;
     overflow: auto;

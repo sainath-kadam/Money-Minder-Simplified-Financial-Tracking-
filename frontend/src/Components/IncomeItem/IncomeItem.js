@@ -97,7 +97,6 @@ function IncomeItem({
         </IncomeItemStyled>
     )
 }
-
 const IncomeItemStyled = styled.div`
     background: #FCF6F9;
     border: 2px solid #FFFFFF;
@@ -165,5 +164,4 @@ const IncomeItemStyled = styled.div`
         }
     }
 `;
-
 export default IncomeItem

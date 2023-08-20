@@ -5,7 +5,6 @@ import History from '../../History/History';
 import { InnerLayout } from '../../styles/Layouts';
 import { dollar } from '../../utils/Icons';
 import Chart from '../Chart/Chart';
-
 function Dashboard() {
     const {totalExpenses,incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext()
 
@@ -13,11 +12,10 @@ function Dashboard() {
         getIncomes()
         getExpenses()
     }, [])
-
     return (
         <DashboardStyled>
             <InnerLayout>
-                <h1>All Transactions</h1>
+                <h1>All Transactions</h1>   ``
                 <div className="stats-con">
                     <div className="chart-con">
                         <Chart />
@@ -68,7 +66,6 @@ function Dashboard() {
         </DashboardStyled>
     )
 }
-
 const DashboardStyled = styled.div`
     .stats-con{
         display: grid;

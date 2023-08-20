@@ -4,8 +4,7 @@ import avatar from '../../img/avatar.png'
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
 
-function Navigation({active, setActive}) {
-    
+function Navigation({active, setActive}) {     
     return (
         <NavStyled>
             <div className="user-con">
@@ -45,7 +44,7 @@ const NavStyled = styled.nav`
     backdrop-filter: blur(4.5px);
     border-radius: 32px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: space-between;
     gap: 2rem;
     .user-con{

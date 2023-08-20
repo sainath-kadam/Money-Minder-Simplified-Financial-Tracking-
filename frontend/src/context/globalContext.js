@@ -3,8 +3,6 @@ import axios from 'axios'
 
 
 const BASE_URL = "http://localhost:8082/routes/";
-
-
 const GlobalContext = React.createContext()
 
 export const GlobalProvider = ({children}) => {
@@ -21,7 +19,6 @@ export const GlobalProvider = ({children}) => {
             })
         getIncomes()
     }
-
     const getIncomes = async () => {
         const response = await axios.get(`${BASE_URL}get-incomes`)
         setIncomes(response.data)

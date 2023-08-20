@@ -17,7 +17,6 @@ function ExpenseForm() {
         category: '',
         description: '',
     })
-
     const { title, amount, date, category,description } = inputState;
 
     const handleInput = name => e => {
