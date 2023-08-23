@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 function Button({name, icon, onClick, bg, bPad, color, bRad}) {
     return (
         <ButtonStyled style={{
@@ -14,7 +13,6 @@ function Button({name, icon, onClick, bg, bPad, color, bRad}) {
         </ButtonStyled>
     )
 }
-
 const ButtonStyled = styled.button`
     outline: none;
     border: none;

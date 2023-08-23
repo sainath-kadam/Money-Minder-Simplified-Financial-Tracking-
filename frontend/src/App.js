@@ -2,24 +2,18 @@ import React, { useState, useMemo } from 'react';
 import styled from "styled-components";
 import bg from './img/bg.png';
 import { MainLayout } from './styles/Layouts';
-import Orb from './Components/Orb/Orb';
 import Navigation from './Components/Navigation/Navigation';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Income from './Components/Income/Income';
 import Expenses from './Components/Expenses/Expenses';
 import { useGlobalContext } from './context/globalContext';
-
 function App() {
   const [pin, setPin] = useState('');
   const [isPinValidated, setIsPinValidated] = useState(false);
-
   const correctPin = '987654321';
-
   const [active, setActive] = useState(1);
-
-  const global = useGlobalContext();
-  console.log(global);
-
+  // const global = useGlobalContext();
+  // console.log(global);
   const handlePinSubmit = () => {
     if (pin === correctPin) {
       setIsPinValidated(true);
@@ -41,13 +35,11 @@ function App() {
           <SubmitButton>
           <button onClick={handlePinSubmit}>Submit</button>
           </SubmitButton>
-        
         </div>
         </PinForm>
         </CenteredContainer>
         <StyledQuote>
-        
-        "Saving money doesn't mean you're cheap;<br/> it means you're wise and value the future you're building."
+        "Saving money doesn't mean you're poor;<br/> it means you're wise and value the future you're building."
         </StyledQuote>
         </>
       );
@@ -55,8 +47,6 @@ function App() {
       switch (active) {
         case 1:
           return <Dashboard />;
-        // case 2:
-        //   return <Dashboard />;
         case 3:
           return <Income />;
         case 4:
@@ -67,13 +57,13 @@ function App() {
     }
   };
 
-  const orbMemo = useMemo(() => {
-    return <Orb />;
-  }, []);
-
+  // const orbMemo = useMemo(() => {
+  //   return <Orb />;
+  // }, []);
+  
   return (
     <AppStyled bg={bg} className="App">
-      {orbMemo}
+      {/* {orbMemo} */}
       <MainLayout>
         <Navigation active={active} setActive={setActive} />
         <main>
@@ -83,7 +73,6 @@ function App() {
     </AppStyled>
   );
 }
-
 const AppStyled = styled.div`
   height: 100vh;
   background-image: url(${props => props.bg});
@@ -100,14 +89,12 @@ const AppStyled = styled.div`
     }
   }
 `;
-
 const CenteredContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50vh;
 `;
-
 const PinForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -120,7 +107,7 @@ const PinForm = styled.form`
 `;
 const PinInput = styled.input`
   padding: 15px;
-  font-size: 18px; /* Adjust as needed */
+  font-size: 18px; 
   font-weight: bold;
   border: none;
   border-bottom: 2px solid #007bff;
@@ -132,7 +119,6 @@ const PinInput = styled.input`
     color: #999;
   }
 `;
-
 const SubmitButton = styled.button`
   background-color: #007bff;
   color: white;

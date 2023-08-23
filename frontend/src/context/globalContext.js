@@ -1,12 +1,9 @@
 import React, { useContext, useState } from "react"
 import axios from 'axios'
-
-
 const BASE_URL = "http://localhost:8082/routes/";
 const GlobalContext = React.createContext()
 
 export const GlobalProvider = ({children}) => {
-
     const [incomes, setIncomes] = useState([])
     const [expenses, setExpenses] = useState([])
     const [error, setError] = useState(null)
@@ -29,7 +26,6 @@ export const GlobalProvider = ({children}) => {
         const res  = await axios.delete(`${BASE_URL}delete-income/${id}`)
         getIncomes()
     }
-
     const totalIncome = () => {
         let totalIncome = 0;
         incomes.forEach((income) =>{
@@ -38,8 +34,6 @@ export const GlobalProvider = ({children}) => {
 
         return totalIncome;
     }
-
-
     //calculate incomes
     const addExpense = async (income) => {
         const response = await axios.post(`${BASE_URL}add-expense`, income)
@@ -48,32 +42,25 @@ export const GlobalProvider = ({children}) => {
             })
         getExpenses()
     }
-
     const getExpenses = async () => {
         const response = await axios.get(`${BASE_URL}get-expenses`)
         setExpenses(response.data)
         console.log(response.data)
     }
-
     const deleteExpense = async (id) => {
         const res  = await axios.delete(`${BASE_URL}delete-expense/${id}`)
         getExpenses()
     }
-
     const totalExpenses = () => {
         let totalIncome = 0;
         expenses.forEach((income) =>{
             totalIncome = totalIncome + income.amount
         })
-
         return totalIncome;
     }
-
-
     const totalBalance = () => {
         return totalIncome() - totalExpenses()
     }
-
     const transactionHistory = () => {
         const history = [...incomes, ...expenses]
         history.sort((a, b) => {
@@ -82,8 +69,6 @@ export const GlobalProvider = ({children}) => {
 
         return history.slice(0, 3)
     }
-
-
     return (
         <GlobalContext.Provider value={{
             addIncome,
@@ -105,7 +90,6 @@ export const GlobalProvider = ({children}) => {
         </GlobalContext.Provider>
     )
 }
-
 export const useGlobalContext = () =>{
     return useContext(GlobalContext)
 }

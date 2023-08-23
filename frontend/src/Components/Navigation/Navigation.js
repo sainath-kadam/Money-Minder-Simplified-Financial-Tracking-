@@ -27,14 +27,13 @@ function Navigation({active, setActive}) {
                 })}
             </ul>
             <div className="bottom-nav">
-                {/* <li>
+                <li>
                     {signout} Sign Out
-                </li> */}
+                </li>
             </div>
         </NavStyled>
     )
 }
-
 const NavStyled = styled.nav`
     padding: 2rem 1.5rem;
     width: 374px;

@@ -9,12 +9,10 @@ import {Chart as ChartJs,
     Legend,
     ArcElement,
 } from 'chart.js'
-
 import {Line} from 'react-chartjs-2'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../context/globalContext'
 import { dateFormat } from '../../utils/dateFormat'
-
 ChartJs.register(
     CategoryScale,
     LinearScale,
@@ -59,15 +57,12 @@ function Chart() {
             }
         ]
     }
-
-
     return (
         <ChartStyled >
             <Line data={data} />
         </ChartStyled>
     )
 }
-
 const ChartStyled = styled.div`
     background: #FCF6F9;
     border: 2px solid #FFFFFF;
