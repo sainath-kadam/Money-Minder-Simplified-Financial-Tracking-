@@ -12,8 +12,6 @@ function App() {
   const [isPinValidated, setIsPinValidated] = useState(false);
   const correctPin = '987654321';
   const [active, setActive] = useState(1);
-  // const global = useGlobalContext();
-  // console.log(global);
   const handlePinSubmit = () => {
     if (pin === correctPin) {
       setIsPinValidated(true);
@@ -23,8 +21,12 @@ function App() {
     if (!isPinValidated) {
       return (
         <>
+        <Heading>
+        <h2>To access this locker, contact me – it's as simple as that!</h2>
+        </Heading>
         < CenteredContainer>
         < PinForm>
+        
         <div>
           <h2>Enter PIN</h2>
           <input
@@ -39,7 +41,11 @@ function App() {
         </PinForm>
         </CenteredContainer>
         <StyledQuote>
-        "Saving money doesn't mean you're poor;<br/> it means you're wise and value the future you're building."
+        Embracing the practice of saving signifies not only wisdom but also a forward-looking perspective,
+       illustrating my commitment to crafting a prosperous future
+        <br/>
+        <br/>
+        ~ Sainath Kadam
         </StyledQuote>
         </>
       );
@@ -63,7 +69,6 @@ function App() {
   
   return (
     <AppStyled bg={bg} className="App">
-      {/* {orbMemo} */}
       <MainLayout>
         <Navigation active={active} setActive={setActive} />
         <main>
@@ -93,7 +98,7 @@ const CenteredContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 40vh;
 `;
 const PinForm = styled.form`
   display: flex;
@@ -138,6 +143,14 @@ const StyledQuote = styled.h4`
   font-weight: bold;
   text-align: center;
   margin: 20px 0;
+  color: #000000;
+`;
+const Heading = styled.h2`
+  padding: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
   color: #000000;
 `;
 

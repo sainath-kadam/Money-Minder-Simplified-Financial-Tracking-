@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import axios from 'axios'
-const BASE_URL = "http://localhost:8082/routes/";
+const BASE_URL = "https://pocketmoney3.onrender.com/routes/";
 const GlobalContext = React.createContext()
 
 export const GlobalProvider = ({children}) => {
