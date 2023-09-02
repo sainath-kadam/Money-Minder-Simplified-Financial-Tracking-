@@ -7,9 +7,11 @@ import ExpenseForm from './ExpenseForm';
 
 function Expenses() {
     const {expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
+
     useEffect(() =>{
         getExpenses()
     }, [])
+// Call the getExpenses function when the component mounts
     return (
         <ExpenseStyled>
             <InnerLayout>

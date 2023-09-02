@@ -6,11 +6,12 @@ import Navigation from './Components/Navigation/Navigation';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Income from './Components/Income/Income';
 import Expenses from './Components/Expenses/Expenses';
-import { useGlobalContext } from './context/globalContext';
+import SplitExpensess from './Components/Splite/SplitExpensess';
+
 function App() {
   const [pin, setPin] = useState('');
   const [isPinValidated, setIsPinValidated] = useState(false);
-  const correctPin = '987654321';
+  const correctPin = '123';
   const [active, setActive] = useState(1);
   const handlePinSubmit = () => {
     if (pin === correctPin) {
@@ -57,6 +58,8 @@ function App() {
           return <Income />;
         case 4:
           return <Expenses />;
+          case 5:
+          return <SplitExpensess />;
         default:
           return <Dashboard />;
       }

@@ -1,53 +1,51 @@
+
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import SplitExpensesForm from './SplitExpensesForm'
 import { useGlobalContext } from '../../context/globalContext';
+import SpliteItem from '../SpliteItem/Spliteitem';
 import { InnerLayout } from '../../styles/Layouts';
-import Form from '../Form/Form';
-import IncomeItem from '../IncomeItem/IncomeItem';
 
-function Income() {
-    const {incomes, getIncomes, deleteIncome, totalIncome} = useGlobalContext() 
-
-    useEffect(() =>{
-        getIncomes()
-    }, [])
-
-    return (
-        <IncomeStyled>
+function SplitExpensess() {
+  const {splite,getSplite,deleteSplite,totalSplite} =useGlobalContext()
+  useEffect(() =>{
+    getSplite()
+}, [])
+  return (
+    <SpliteStyled>
             <InnerLayout>
-                <h1>Incomes</h1>
-                <h2 className="total-income">Total Income: <span>Rs.{totalIncome()}</span></h2>
-                <div className="income-content">
+                <h1>Splite Expense</h1>
+                <h2 className="total-splite">Group Expense: <span>Rs.{totalSplite()}</span></h2>
+                <div className="splite-content">
                     <div className="form-container">
-                        <Form />
+                    <SplitExpensesForm/>
                     </div>
-                    <div className="incomes">
-                        {incomes.map((income) => {
-                            const {_id, title, amount, date, category, description, type} = income;
-                            return <IncomeItem
+                    <div className="splites">
+                        {splite.map((splite) => {
+                            const {_id, title,amount,date,description,persons} = splite;
+                            console.log(splite)
+                            return <SpliteItem
                                 key={_id}
                                 id={_id} 
                                 title={title} 
+                                persons={persons}
                                 description={description} 
                                 amount={amount} 
                                 date={date} 
-                                type={type}
-                                category={category} 
                                 indicatorColor="var(--color-green)"
-                                deleteItem={deleteIncome}
+                                deleteItem={deleteSplite}
                             />
                         })}
                     </div>
                 </div>
             </InnerLayout>
-        </IncomeStyled>
+        </SpliteStyled>
     )
 }
-
-const IncomeStyled = styled.div`
+const SpliteStyled = styled.div`
     display: flex;
     overflow: auto;
-    .total-income{
+    .total-splite{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -57,7 +55,7 @@ const IncomeStyled = styled.div`
         border-radius: 20px;
         padding: 1rem;
         margin: 1rem 0;
-        font-size: 2rem;
+        font-size: rem;
         gap: .5rem;
         span{
             font-size: 2.5rem;
@@ -65,13 +63,13 @@ const IncomeStyled = styled.div`
             color: var(--color-green);
         }
     }
-    .income-content{
+    .splite-content{
         display: flex;
         gap: 2rem;
-        .incomes{
+        .splites{
             flex: 1;
         }
     }
 `;
 
-export default Income
+export default SplitExpensess

@@ -1,11 +1,13 @@
 import React, { useContext, useState } from "react"
 import axios from 'axios'
-const BASE_URL = "https://pocketmoney3.onrender.com/routes/";
+const BASE_URL = "http://localhost:8082/routes/";
 const GlobalContext = React.createContext()
+
 
 export const GlobalProvider = ({children}) => {
     const [incomes, setIncomes] = useState([])
     const [expenses, setExpenses] = useState([])
+    const [splite, setSplit] = useState([])
     const [error, setError] = useState(null)
 
     //calculate incomes
@@ -16,16 +18,21 @@ export const GlobalProvider = ({children}) => {
             })
         getIncomes()
     }
+   
+
+
     const getIncomes = async () => {
         const response = await axios.get(`${BASE_URL}get-incomes`)
         setIncomes(response.data)
         console.log(response.data)
     }
 
+
     const deleteIncome = async (id) => {
         const res  = await axios.delete(`${BASE_URL}delete-income/${id}`)
         getIncomes()
     }
+
     const totalIncome = () => {
         let totalIncome = 0;
         incomes.forEach((income) =>{
@@ -34,7 +41,10 @@ export const GlobalProvider = ({children}) => {
 
         return totalIncome;
     }
-    //calculate incomes
+
+
+
+    //calculate expense
     const addExpense = async (income) => {
         const response = await axios.post(`${BASE_URL}add-expense`, income)
             .catch((err) =>{
@@ -42,6 +52,7 @@ export const GlobalProvider = ({children}) => {
             })
         getExpenses()
     }
+    
     const getExpenses = async () => {
         const response = await axios.get(`${BASE_URL}get-expenses`)
         setExpenses(response.data)
@@ -58,6 +69,35 @@ export const GlobalProvider = ({children}) => {
         })
         return totalIncome;
     }
+
+
+    //calculate splite
+    const addSplite = async (splite) => {
+        const response = await axios.post(`${BASE_URL}add-splite`, splite)
+            .catch((err) =>{
+                setError(err.response.data.message)
+            })
+        getSplite()
+    }
+    const getSplite = async () => {
+        const response = await axios.get(`${BASE_URL}get-splite`)
+        setSplit(response.data)
+        console.log(response.data)
+    }
+    const deleteSplite = async (id) => {
+        const res  = await axios.delete(`${BASE_URL}delete-splite/${id}`)
+        getSplite()
+    }
+  
+    const totalSplite = () => {
+        let totalIncome = 0;
+        splite.forEach((income) =>{
+            totalIncome = totalIncome + income.amount
+        })
+        return totalIncome;
+    }
+    
+     // total
     const totalBalance = () => {
         return totalIncome() - totalExpenses()
     }
@@ -80,6 +120,11 @@ export const GlobalProvider = ({children}) => {
             addExpense,
             getExpenses,
             deleteExpense,
+            splite,
+            addSplite,
+            getSplite,
+            deleteSplite,
+            totalSplite,
             totalExpenses,
             totalBalance,
             transactionHistory,
