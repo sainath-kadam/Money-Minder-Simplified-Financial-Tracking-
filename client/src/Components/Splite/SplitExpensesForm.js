@@ -66,17 +66,21 @@ const [persons, setPersons] = useState([{ name: '', amountPaid: '' }]);
     calculateAmounts();
   };
   const handleSave = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     addSplite(inputState);
     calculateAmounts();
     setInputState({
       title: '',
       date: '',
-      persons: [{ name: '', amountPaid: ''}],
+      total_no: '',
+      amount: '',
       description: '',
+      persons: [{ name: '', amountPaid: '' }],
       result: [],
+      
     });
   };
+  
   return (
     <SplitSplitesStyled onSubmit={handleCalculate}>
       {error && <p className='error'>{error}</p>}

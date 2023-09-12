@@ -28,14 +28,17 @@ const SpliteSchema = new mongoose.Schema({
     {
       name: {
         type: String,
+        required: true,
         trim: true
       },
       amountPaid: {
         type: Number,
-        maxLength: 20,
+        required: true,
+        maxLength:20,
       },
       amountLeft: {
         type: Number,
+        required: true,
         maxLength: 20,
       }
     }

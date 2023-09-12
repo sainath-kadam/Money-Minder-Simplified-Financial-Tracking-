@@ -1,8 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
-import { dateFormat } from '../../utils/dateFormat';
-import { bitcoin, book, calender, card, circle, clothing, comment, rupee, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from '../../utils/Icons';
-import Button from '../Button/Button';
+import React from "react";
+import styled from "styled-components";
+import { dateFormat } from "../../utils/dateFormat";
+import {
+  bitcoin,
+  book,
+  calender,
+  card,
+  circle,
+  clothing,
+  comment,
+  rupee,
+  food,
+  freelance,
+  medical,
+  money,
+  piggy,
+  stocks,
+  takeaway,
+  trash,
+  tv,
+  users,
+  yt,
+} from "../../utils/Icons";
+import Button from "../Button/Button";
 
 function SplitItem({
   id,
@@ -17,8 +37,6 @@ function SplitItem({
   return (
     <SplitItemStyled indicator={indicatorColor}>
       <div className="icon">
-        {/* Replace this with the appropriate icon for split expenses */}
-        {/* Example: <i className="fas fa-money-bill"></i> */}
         <i className="fas fa-money-bill"></i>
       </div>
       <div className="content">
@@ -29,24 +47,25 @@ function SplitItem({
             <p>{dateFormat(date)}</p>
             <p>{description}</p>
           </div>
+          <br />
           <div className="persons">
             {persons.map((person, index) => (
               <div key={index} className="person">
-                <p>Name: {person.name}</p>
-                <p>Amount Paid: {person.amountPaid}</p>
-                <p>Amount Left: {person.amountLeft}</p>
+                <p>{person.name}</p>
+                <p>Paid:{person.amountPaid}</p>
+                <p>Will Pay:{person.amountLeft.toFixed(2)}</p>
               </div>
             ))}
           </div>
           <div className="btn-con">
             <Button
               icon={trash}
-              bPad={'1rem'}
-              bRad={'50%'}
-              bg={'var(--primary-color)'}
-              color={'#fff'}
-              iColor={'#fff'}
-              hColor={'var(--color-green)'}
+              bPad={"1rem"}
+              bRad={"50%"}
+              bg={"var(--primary-color)"}
+              color={"#fff"}
+              iColor={"#fff"}
+              hColor={"var(--color-green)"}
               onClick={() => deleteItem(id)}
             />
           </div>
@@ -100,9 +119,25 @@ background: #FCF6F9;
                 width: .8rem;
                 height: .8rem;
                 border-radius: 50%;
-                background: ${props => props.indicator};
+                background: ${(props) => props.indicator};
             }
         }
+        .persons {
+    display: flex;
+    flex-direction: column; 
+    gap: 1rem; 
+    color: var(--primary-color);
+  }
+
+  .person {
+    display: flex;
+    align-items: center;
+    gap: 3rem; 
+
+    p {
+      margin: 0; 
+    }
+  }
 
         .inner-content{
             display: flex;
