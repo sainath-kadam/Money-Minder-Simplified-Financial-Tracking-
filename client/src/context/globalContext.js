@@ -91,8 +91,8 @@ export const GlobalProvider = ({children}) => {
   
     const totalSplite = () => {
         let totalIncome = 0;
-        splite.forEach((income) =>{
-            totalIncome = totalIncome + income.amount
+        splite.forEach((splite) =>{
+            totalIncome = totalIncome + splite.amount
         })
         return totalIncome;
     }
