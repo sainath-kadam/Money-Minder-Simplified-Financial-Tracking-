@@ -65,11 +65,6 @@ function App() {
       }
     }
   };
-
-  // const orbMemo = useMemo(() => {
-  //   return <Orb />;
-  // }, []);
-  
   return (
     <AppStyled bg={bg} className="App">
       <MainLayout>

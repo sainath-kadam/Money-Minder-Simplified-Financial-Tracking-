@@ -2,7 +2,6 @@ const ExpenseSchema = require("../models/ExpenseModel")
 exports.addExpense = async (req, res) => {
     const {title, amount, category, description, date}  = req.body
     console.log(req.body);
-
     const income = ExpenseSchema({
         title,
         amount,
@@ -26,7 +25,6 @@ exports.addExpense = async (req, res) => {
 
     console.log(income)
 }
-
 exports.getExpense = async (req, res) =>{
     try {
         const incomes = await ExpenseSchema.find().sort({createdAt: -1})

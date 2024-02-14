@@ -7,7 +7,6 @@ import { rupee } from "../../utils/Icons";
 import Chart from "../Chart/Chart";
 function Dashboard() {
 const {totalExpenses,incomes,expenses,totalIncome,totalBalance,getIncomes,getExpenses} = useGlobalContext();
-
   useEffect(() => {
     getIncomes();
     getExpenses();

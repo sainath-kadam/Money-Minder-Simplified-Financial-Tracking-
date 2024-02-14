@@ -2,7 +2,6 @@ const { addExpense, getExpense, deleteExpense } = require('../controllers/expens
 const { addIncome, getIncomes, deleteIncome } = require('../controllers/income');
 const { addSplite, getSplite, deleteSplite } = require('../controllers/splite');
 
-
 const router = require('express').Router();
 
 router.post('/add-income', addIncome)

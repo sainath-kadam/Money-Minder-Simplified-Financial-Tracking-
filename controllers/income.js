@@ -1,7 +1,7 @@
 const IncomeSchema= require("../models/IncomeModel")
+
 exports.addIncome = async (req, res) => {
     const {title, amount, category, description, date}  = req.body
-
     const income = IncomeSchema({
         title,
         amount,
@@ -22,9 +22,9 @@ exports.addIncome = async (req, res) => {
     } catch (error) {
         res.status(500).json({message: 'Server Error'})
     }
-
     console.log(income)
 }
+
 
 exports.getIncomes = async (req, res) =>{
     try {
@@ -34,6 +34,7 @@ exports.getIncomes = async (req, res) =>{
         res.status(500).json({message: 'Server Error'})
     }
 }
+
 
 exports.deleteIncome = async (req, res) =>{
     const {id} = req.params;
